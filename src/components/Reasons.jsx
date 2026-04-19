@@ -73,7 +73,7 @@ export default function Reasons() {
 
   return (
     <section className="dark-theme" ref={ref} style={{ padding: '8vw 0', overflow: 'hidden' }}>
-      <div className="container reasons-container" style={{ maxWidth: '85vw', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '6vw' }}>
+      <div className="container reasons-container" style={{ maxWidth: '85vw', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5vw' }}>
         
         {/* Header Block */}
         <div className="reasons-header section-header" style={{ marginBottom: '1vw' }}>

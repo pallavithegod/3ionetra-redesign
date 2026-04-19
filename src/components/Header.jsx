@@ -57,18 +57,18 @@ export default function Header() {
           />
         </a>
         <nav className={`nav ${menuOpen ? 'w--open' : ''}`}>
-          <a href="https://my3ionetra.com/">Home</a>
-          <a href="https://my3ionetra.com/pages/theheartspace">TheHeartSpace</a>
+          <a href="https://my3ionetra.com/" className="nav-link">Home</a>
+          <a href="https://my3ionetra.com/pages/theheartspace" className="nav-link">TheHeartSpace</a>
           
           <div 
             className="nav-dropdown"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
-            style={{ position: 'relative', display: 'flex', alignItems: 'center' }}
+            style={{ position: 'relative', paddingBottom: '0.35vw' }}
           >
-            <a style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4vw', padding: 0 }}>
+            <a style={{ cursor: 'pointer', padding: 0 }}>
               Services
-              <svg width="12" height="8" viewBox="0 0 10 6" fill="none" style={{ transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
+              <svg width="12" height="8" viewBox="0 0 10 6" fill="none" style={{ transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s', marginLeft: '0.4vw', verticalAlign: 'middle', position: 'relative', top: '-0.1vw' }}>
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
@@ -91,14 +91,14 @@ export default function Header() {
               zIndex: 100,
               gap: '0.2vw'
             }}>
-              <a href="https://my3ionetra.com/pages/puja-temple-list" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}>Puja</a>
-              <a href="https://my3ionetra.com/pages/3ionetra-astro" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}>Astro</a>
-              <a href="https://my3ionetra.com/pages/mantra" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}>Mantra</a>
-              <a href="https://my3ionetra.com/pages/bhajan-clubbing-list" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}>Bhajan Clubbing</a>
+              <a href="https://my3ionetra.com/pages/puja-temple-list" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}><span className="nav-link-text">Puja</span></a>
+              <a href="https://my3ionetra.com/pages/3ionetra-astro" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}><span className="nav-link-text">Astro</span></a>
+              <a href="https://my3ionetra.com/pages/mantra" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}><span className="nav-link-text">Mantra</span></a>
+              <a href="https://my3ionetra.com/pages/bhajan-clubbing-list" style={{ padding: '0.8vw 1.2vw', margin: 0, width: '100%', borderRadius: '0.5vw', color: '#1a1a1a' }}><span className="nav-link-text">Bhajan Clubbing</span></a>
             </div>
           </div>
 
-          <a href="https://my3ionetra.com/pages/about-us">About Us</a>
+          <a href="https://my3ionetra.com/pages/about-us" className="nav-link">About Us</a>
 
           <div className="header-actions">
             <div className="buttons">

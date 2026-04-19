@@ -64,8 +64,8 @@ export default function FeedbackWidget() {
                     style={{ width: '100%', resize: 'vertical' }}
                   ></textarea>
                 </div>
-                <button type="submit" className="filled features-overlay-submit" style={{ backgroundColor: 'var(--orange)', color: 'var(--creme)' }}>
-                  <span className="text-link">Submit Feedback</span>
+                <button type="submit" className="filled features-overlay-submit">
+                  Submit Feedback
                 </button>
               </form>
             </div>

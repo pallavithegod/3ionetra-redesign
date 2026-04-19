@@ -106,7 +106,8 @@ export default function Hero() {
         
         <div className="hero-paragaph">
           <AnimateText type="lines" delay={0.3} duration={1}>
-            <h6> In a fast-paced world, it’s easy to lose connection with yourself. Our curated wellness workshops and retreats provide a safe, supportive space to slow down, reset, and reconnect through a blend of traditional healing and modern awareness.
+            <h6 style={{ color: '#D4BA9E', textShadow: '1px 2px 5px rgba(0,0,0,0.8), 0px 1px 1px rgba(0,0,0,0.6)', fontWeight: '500' }}>
+              In a fast-paced world, it’s easy to lose connection with yourself. Our curated wellness workshops and retreats provide a safe, supportive space to slow down, reset, and reconnect through a blend of traditional healing and modern awareness.
             </h6>
           </AnimateText>
           <div className="buttons-row">

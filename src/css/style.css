@@ -971,6 +971,32 @@ body:has(.specialty-overlay.active) .header {
   transition: color var(--header-theme-transition-duration) var(--simple-easing);
 }
 
+/* Nav links underline animation on hover */
+.nav-link,
+.nav-link-text {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-link:after,
+.nav-link-text:after {
+  display: block;
+  content: "";
+  border-bottom: solid 0.05vw currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  padding-bottom: 0.3vw;
+  transition: transform 650ms var(--cta-motion-easing);
+  opacity: 1;
+  width: 100%;
+}
+
+.nav-link:hover:after,
+a:hover > .nav-link-text:after {
+  transform: scaleX(1);
+}
+
 .header.above-light-theme .nav {
   color: var(--dark-blue);
 }
@@ -1042,10 +1068,18 @@ button:not(.scroll-to-top) {
 }
 
 button.features-overlay-submit {
-  padding: 0 !important;
-  font-size: 2vw;
   margin-top: 3vw;
   margin-bottom: 0.5vw;
+}
+
+button.features-overlay-submit:hover::before {
+  background: var(--dark-blue);
+  border-color: var(--dark-blue);
+  opacity: 1;
+}
+
+button.features-overlay-submit:hover {
+  color: var(--creme-light) !important;
 }
 
 
@@ -7887,7 +7921,7 @@ body .uwy.userway_p3 .userway_buttons_wrapper {
 .footer button.filled:hover {
   background-color: #E26038 !important;
   border-color: #E26038 !important;
-  color: #F4E5C2 !important;
+  color: #4c1e1b !important;
 }
 
 /* Secondary Buttons */

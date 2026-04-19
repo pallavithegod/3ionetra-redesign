@@ -41,7 +41,7 @@ export default function Footer() {
             <button
               type="submit"
               className="filled"
-              style={{ padding: '0.8vw 1.8vw', cursor: 'pointer', border: 'none', backgroundColor: '#dca84c', color: 'var(--dark-blue)', fontWeight: 600 }}
+              style={{ padding: '0.8vw 1.8vw', cursor: 'pointer', border: 'none', fontWeight: 600 }}
             >
               Subscribe
             </button>
@@ -90,8 +90,8 @@ export default function Footer() {
           {/* Scroll to Top */}
           <div className="column" style={{ flex: '0 0 auto' }}>
             <button aria-label="Scroll to top" className="scroll-to-top" onClick={scrollToTop} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C84B24', width: '3.5vw', height: '3.5vw', minWidth: '40px', minHeight: '40px', borderRadius: '50%', border: '1px solid #C84B24', backgroundColor: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }} onMouseEnter={(e) => {e.currentTarget.style.backgroundColor = '#C84B24'; e.currentTarget.style.color = 'var(--creme)';}} onMouseLeave={(e) => {e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#C84B24';}}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: '1.2vw', height: '1.2vw', minWidth: '14px', minHeight: '14px' }}>
-                <polyline points="18 15 12 9 6 15" />
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ width: '1.2vw', height: '1.2vw', minWidth: '14px', minHeight: '14px', strokeWidth: 4 }}>
+                <polyline strokeWidth="4" points="18 15 12 9 6 15" />
               </svg>
             </button>
           </div>
