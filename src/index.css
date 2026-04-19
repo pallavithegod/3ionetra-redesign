@@ -1,0 +1,731 @@
+/* General styles */
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* Ensure the overlay is always on top when active */
+.features-overlay.active {
+  z-index: 10000;
+}
+
+/* Hero Carousel Layout */
+.hero.carousel-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 10vw;
+  padding-bottom: 8vw;
+  height: auto;
+}
+
+.hero-carousel {
+  width: fit-content;
+  max-width: 96vw;
+  height: 49.5vh;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 1.5vw;
+  box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.1);
+}
+
+.hero-carousel-track {
+  width: fit-content;
+  height: 100%;
+  position: relative;
+  display: block;
+  border-radius: inherit;
+  margin: 0 auto;
+}
+
+.hero-carousel-track a {
+  display: block;
+  height: 100%;
+}
+
+.hero-carousel-img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: transparent;
+  border-radius: inherit;
+  display: block;
+}
+
+/* Carousel Manual Navigation (Dots) */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 0.8vw;
+  margin: 1.5vw 0;
+  /* Positioned below the carousel */
+  z-index: 10;
+}
+
+.carousel-dots .dot {
+  width: 0.6vw;
+  height: 0.6vw;
+  border-radius: 50%;
+  background: var(--dark-blue);
+  /* Dark color as it's outside the dark carousel */
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dots .dot:hover {
+  opacity: 0.6;
+}
+
+.carousel-dots .dot.active {
+  opacity: 1;
+  transform: scale(1.3);
+  background: var(--orange);
+}
+
+/* Navigation Arrows */
+.carousel-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1vw;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 1000; /* High z-index */
+}
+
+.arrow-btn {
+  width: 3vw;
+  height: 3vw;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6); /* More opaque */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.arrow-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.arrow-btn svg,
+.arrow-btn img {
+  width: 55% !important;
+  height: 55% !important;
+  stroke: #3E2723;
+  display: block;
+  margin: auto;
+}
+
+.hero-content-bottom {
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
+  grid-gap: 3vw;
+  /* padding-top: 2vw !important; */
+  /* Some space from dots */
+  min-height: unset !important;
+}
+
+.hero-paragaph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 2vw;
+  margin-top: 0 !important;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1vw;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 40vh;
+    border-radius: 3vw;
+  }
+
+  .hero-content-bottom {
+    max-width: 90vw; /* Keep 90vw on mobile to avoid squishing too much */
+  }
+
+  .carousel-dots .dot {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .arrow-btn {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
+/* Approach Section Enhancements */
+.underline-link.active .underline-indicator {
+  width: 100% !important;
+  transition: width 0.6s cubic-bezier(.46, 0, 0, .99);
+}
+
+.underline-link .arrow-icon {
+  transition: transform 0.4s cubic-bezier(.46, 0, 0, .99);
+}
+
+.underline-link.active .arrow-icon {
+  transform: translateX(0.5vw);
+}
+
+.underline-link h3 {
+  transition: color 0.3s ease;
+}
+
+/* Ensure the large font size requested */
+.four-five .underline-link h3 {
+  font-size: 3.5vw !important;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Footer & CTA Fixes */
+.bottom-cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 1vw;
+  margin-top: 2vw;
+}
+
+.footer .marquee-collection .big-type div:nth-child(2) {
+  color: #2a2c2f;
+}
+
+.footer .grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: var(--grid-gap-desktop);
+  padding: 4vw var(--padding-sides-desktop);
+}
+
+.footer .column p {
+  text-transform: uppercase;
+  font-size: 0.75vw;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5vw;
+  color: var(--creme);
+  opacity: 0.4;
+}
+
+.footer ul a {
+  text-decoration: none;
+  color: var(--creme);
+  transition: opacity 0.3s ease;
+}
+
+.footer ul a:hover {
+  opacity: 0.7;
+}
+
+.footer .scroll-to-top {
+  border: 1px solid rgba(243, 237, 227, 0.2);
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(243, 237, 227, 0.1);
+  padding-top: 2vw;
+  margin-top: 4vw;
+  font-size: 0.8vw;
+  color: var(--med-beige);
+}
+
+/* Lenis Smooth Scroll Recommended Styles */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Event Categories Section */
+.event-categories {
+  padding: 8vw var(--padding-sides-desktop);
+  background-color: var(--creme);
+}
+
+.event-categories .section-header {
+  margin-bottom: 5vw;
+}
+
+.event-categories .big-title {
+  font-size: 3.5vw;
+  line-height: 1.1;
+  color: var(--dark-blue);
+  margin-bottom: 1.5vw;
+  font-weight: 700;
+}
+
+.event-categories .subtitle {
+  font-size: 1.25vw;
+  line-height: 1.5;
+  color: var(--dark-blue);
+  opacity: 0.7;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(42, 44, 47, 0.1);
+  width: 100%; /* Occupation of the whole column for alignment */
+}
+
+.category-card {
+  position: relative;
+  border-bottom: 1px solid rgba(42, 44, 47, 0.1);
+  padding: 2.2vw 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  width: 100%;
+}
+
+.card-inline-content {
+  display: flex;
+  align-items: center;
+  grid-gap: 2vw;
+  width: 100%;
+}
+
+.icon-wrap {
+  width: 3.5vw;
+  height: 3.5vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(.19,1,0.22,1);
+}
+
+.icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.text-wrap {
+  display: flex;
+  align-items: center;
+  grid-gap: 4vw;
+  flex: 1; /* Allow to take full available width */
+}
+
+.card-title {
+  font-size: 1.8vw;
+  font-weight: 600;
+  color: var(--dark-blue);
+  min-width: 20vw;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.card-desc {
+  font-size: 1.1vw;
+  line-height: 1.4;
+  color: var(--dark-blue);
+  opacity: 0.6;
+  margin: 0;
+  flex: 1;
+}
+
+.hover-line {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange);
+  transition: width 0.6s cubic-bezier(.19,1,0.22,1);
+}
+
+.category-card:hover {
+  padding-left: 1vw;
+  background-color: rgba(42, 44, 47, 0.02);
+}
+
+.category-card:hover .hover-line {
+  width: 100%;
+}
+
+.category-card:hover .icon-wrap {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+  .event-categories .section-header {
+    max-width: 90vw;
+  }
+  .event-categories .big-title {
+    font-size: 8vw;
+  }
+  .event-categories .subtitle {
+    font-size: 4vw;
+  }
+  .card-inline-content {
+    flex-direction: column;
+    align-items: flex-start;
+    grid-gap: 2vw;
+  }
+  .text-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    grid-gap: 1vw;
+  }
+  .card-title {
+    font-size: 5vw;
+  }
+  .card-desc {
+    font-size: 3.5vw;
+    max-width: 100%;
+  }
+  .icon-wrap {
+    width: 12vw;
+    height: 12vw;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .event-categories .section-header-col {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 5vw;
+  }
+  .event-categories .column {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .custom-split {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =============================================
+   TYPOGRAPHY STANDARDIZATION TOKENS
+   ============================================= */
+
+:root {
+  /* Section headings — all h2 across sections use this */
+  --h2-size: 3vw;
+  --h2-line-height: 1.1;
+  --h2-weight: 650;
+
+  /* ── SPACING TOKENS ── */
+  /* Vertical padding for ALL sections (top & bottom) */
+  --section-padding-v: 7vw;
+  /* Horizontal padding for ALL sections (matches existing sides desktop) */
+  --section-padding-h: var(--padding-sides-desktop);
+
+  /* Gap between the section heading (h2) and its subheading/paragraph */
+  --h2-to-sub-gap: 1.2vw;
+  /* Gap between the section heading block and the section body content */
+  --heading-block-to-content: 4.5vw;
+
+  /* Card / sub-section headings (h3 titles in Approach, Blog) */
+  --h3-size: 2.2vw;
+  --h3-line-height: 1.15;
+  --h3-weight: 600;
+
+  /* Card titles and item headings (h4 in About, EventCategories, Specialty) */
+  --h4-size: 1.6vw;
+  --h4-line-height: 1.3;
+  --h4-weight: 600;
+
+  /* Body / descriptive paragraph text */
+  --p-size: 1.1vw;
+  --p-line-height: 1.6;
+  --p-weight: 450;
+  --p-letter-spacing: -0.01em;
+
+  /* Buttons (non-navbar) */
+  --btn-size: 1.0vw;
+  --btn-weight: 500;
+  --btn-letter-spacing: -0.02em;
+}
+
+/* Faculty Glyphic Headings Override */
+h1, h2, h3, h4, h5, h6,
+.event-categories .big-title, .card-title {
+  font-family: "Faculty Glyphic", sans-serif !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* ── H2: Standardize all section headings ── */
+h2 {
+  font-size: var(--h2-size) !important;
+  line-height: var(--h2-line-height) !important;
+  font-weight: var(--h2-weight) !important;
+}
+
+/* ── H3: Standardize sub-section headings ── */
+h3 {
+  font-size: var(--h3-size) !important;
+  line-height: var(--h3-line-height) !important;
+  font-weight: var(--h3-weight) !important;
+}
+
+/* ── H4: Standardize card item headings ── */
+h4 {
+  font-size: var(--h4-size) !important;
+  line-height: var(--h4-line-height) !important;
+  font-weight: var(--h4-weight) !important;
+}
+
+/* ── Paragraphs: Standardize all body text ── */
+p,
+.card-desc,
+.features-overlay-description {
+  font-size: var(--p-size) !important;
+  line-height: var(--p-line-height) !important;
+  font-weight: var(--p-weight) !important;
+  letter-spacing: var(--p-letter-spacing) !important;
+}
+
+/* ── Buttons: Standardize all non-navbar buttons ── */
+button:not(.w-nav-button):not(.arrow-btn):not(.dot):not(.features-overlay-close) {
+  font-size: var(--btn-size) !important;
+  font-weight: var(--btn-weight) !important;
+  letter-spacing: var(--btn-letter-spacing) !important;
+}
+
+/* Override the .text-cta button override to align with token */
+.text-cta button {
+  font-size: var(--btn-size) !important;
+  letter-spacing: var(--btn-letter-spacing) !important;
+  font-weight: var(--btn-weight) !important;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hero buttons hover text inversion */
+#model-page button.hollow:hover {
+  color: #4c1e1b !important;
+}
+
+#model-page button.filled:hover {
+  color: var(--orange) !important;
+}
+
+/* Final CTA buttons hover text inversion */
+.final-cta button.hollow:hover {
+  color: var(--beige) !important;
+}
+
+.final-cta button.filled:hover {
+  color: #4c1e1b !important;
+}
+
+/* Cart Button SVG inheritance and theme switching */
+.cart-btn svg {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+.header:not(.above-light-theme) .cart-btn {
+  color: var(--creme-light) !important;
+}
+
+.header:not(.above-light-theme) .cart-btn:hover {
+  color: var(--dark-blue) !important;
+}
+
+.header.above-light-theme .cart-btn {
+  color: var(--dark-blue) !important;
+}
+
+.header.above-light-theme .cart-btn:hover {
+  color: var(--creme-light) !important;
+}
+
+/* Fix global all:unset SVG bug for footer icons */
+.footer-socials a svg,
+.scroll-to-top svg {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+/* =============================================
+   SECTION SPACING STANDARDIZATION
+   All sections except #model-page (hero) get
+   uniform vertical padding and heading gaps.
+   ============================================= */
+
+/* Uniform vertical padding on every section (except hero and marquee) */
+section:not(#model-page):not(.hero):not(.marquee-section) {
+  padding-top: var(--section-padding-v) !important;
+  padding-bottom: var(--section-padding-v) !important;
+  padding-left: var(--section-padding-h) !important;
+  padding-right: var(--section-padding-h) !important;
+}
+
+footer.footer {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Sections that already have an inner .container or .grid should
+   not double-pad — reset the section and let the inner wrapper carry sides */
+section:not(#model-page):not(.hero):not(.marquee-section):has(> .container),
+section:not(#model-page):not(.hero):not(.marquee-section):has(> .grid),
+section:not(#model-page):not(.hero):not(.marquee-section):has(> .w-dyn-list) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+section.final-cta {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: unset !important;
+  height: auto !important;
+}
+
+/* Standardize h2 → immediate next sibling p/h3/div margin */
+section:not(.hero) h2 {
+  margin-bottom: var(--h2-to-sub-gap) !important;
+}
+
+/* Standardize the heading block wrapper → body content gap.
+   Targets the direct parent div that wraps h2+p before the main grid/flex content. */
+section:not(.hero) .section-header,
+section:not(.hero) .reasons-header {
+  margin-bottom: var(--heading-block-to-content) !important;
+}
+
+/* About and Approach: the h2 is a direct section child, so its
+   margin-bottom acts as the h2→content gap. Restore to heading-block size there. */
+.about h2,
+section.light-theme > div > h2 {
+  margin-bottom: var(--heading-block-to-content) !important;
+}
+
+/* =============================================
+   SECTION-HEADER CONTENT SIZING
+   h2 and p inside .section-header get fixed
+   widths so the flex row stays balanced.
+   ============================================= */
+
+/* h2 in section-header gets more horizontal space */
+.section-header h2 {
+  flex: 0 1 auto;
+  max-width: 65%;
+  margin: 0 !important;
+  text-align: left;
+}
+
+/* p in section-header gets less space */
+.section-header p {
+  flex: 0 1 auto;
+  max-width: 35%;
+  margin: 0 !important;
+  text-align: left;
+}
+
+/* Align to the left margin but keep vertical centering */
+.section-header {
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+.section-divider {
+  height: 8vw !important;
+  max-height: 140px !important;
+  margin: 0 3vw !important;
+}
+
+/* Feedback Floating Button */
+.feedback-floating-btn {
+  position: fixed;
+  right: -2.3vw;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  background-color: var(--dark-blue);
+  color: var(--creme);
+  padding: 0.8vw 1.5vw;
+  font-family: inherit;
+  font-size: 1vw;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 0.5vw 0.5vw 0 0;
+  cursor: pointer;
+  z-index: 9000;
+  border: 1px solid rgba(243, 237, 227, 0.2);
+  border-bottom: none;
+  box-shadow: 0 -0.2vw 1vw rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.feedback-floating-btn:hover {
+  background-color: var(--orange);
+  transform: translateY(-50%) rotate(-90deg) translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .feedback-floating-btn {
+    right: -8vw;
+    font-size: 3.5vw;
+    padding: 2vw 4vw;
+  }
+}
