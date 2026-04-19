@@ -7,6 +7,33 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboveLight, setAboveLight] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    if (!document.getElementById('google-translate-script')) {
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: 'en', includedLanguages: 'en,hi', autoDisplay: false },
+          'google_translate_element'
+        );
+      };
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  const toggleLanguage = () => {
+    const nextLang = lang === 'en' ? 'hi' : 'en';
+    setLang(nextLang);
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = nextLang;
+      select.dispatchEvent(new Event('change'));
+    }
+  };
 
   useEffect(() => {
     if (menuOpen) {
@@ -155,9 +182,11 @@ export default function Header() {
       </div>
 
       {/* Floating Sticky Language Selector */}
-      <div 
-        className="language-selector weglot-ignore wg-notranslate" 
+      <button 
+        className="language-selector weglot-ignore wg-notranslate notranslate" 
         data-wg-notranslate=""
+        onClick={toggleLanguage}
+        aria-label="Toggle Language"
         style={{
           position: 'fixed',
           bottom: '2vw',
@@ -166,35 +195,36 @@ export default function Header() {
           backgroundColor: 'var(--creme)',
           border: '1px solid var(--dark-blue)',
           borderRadius: '50vw',
-          padding: '0.2vw 0.5vw',
+          padding: '0.6vw 1vw',
           boxShadow: '0 0.5vw 1.5vw rgba(42,44,47,0.15)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
           transition: 'transform 0.3s ease',
+          color: 'var(--dark-blue)',
+          fontSize: 'max(0.9vw, 13px)',
+          fontWeight: 600,
+          outline: 'none',
+          fontFamily: 'inherit'
         }}
         onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-0.2vw)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
       >
-        <select 
-          id="global-language" 
-          className="weglot-ignore wg-notranslate"
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: 'var(--dark-blue)',
-            fontSize: 'max(0.85vw, 12px)',
-            fontWeight: 600,
-            cursor: 'pointer',
-            outline: 'none',
-            fontFamily: 'inherit'
-          }}
-        >
-          <option value="en">EN</option>
-          <option value="hi">HI</option>
-        </select>
-      </div>
+        {lang === 'en' ? 'HN' : 'EN'}
+      </button>
+
+      {/* Hidden Translate Element & CSS overrides to prevent UI layout shifts and tooltip bugs from Google Translate API */}
+      <div id="google_translate_element" style={{ display: 'none' }}></div>
+      <style>{`
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0px !important; position: static !important; }
+        #goog-gt-tt { display: none !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-tooltip:hover { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+        html { margin-top: 0 !important; }
+      `}</style>
     </header>
   );
 }
